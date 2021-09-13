@@ -13,22 +13,23 @@ const showProducts = (products) => {
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
-    div.innerHTML = `<div class="single-product">
+    div.innerHTML = `<div class="single-product bg-success">
       <div>
-        <img class="product-image" src=${image}></img>
+        <img class="product-image img-thumbnail" width: 150;
+        height: 150; src=${image}></img>
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
       <p>Rating:${product.rating.rate} & Participate:${product.rating.count}</p>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn addToCartButton">Add to cart</button>
+      <button id="details-btn" class="btn detailsButton">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
 };
 
-//count product to cart data
+//count product to set cart data
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
